@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BUGZONE - Servidores</title>
+
+<!-- TIPOGRAFIA -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ========================================= */
+/* BODY */
+/* ========================================= */
+
+body{
+
+    color:white;
+    font-family:'Rajdhani', sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+
+    /* FONDO DESVANECIDO COMO LA FOTO */
+
+    background:
+    radial-gradient(
+        ellipse at bottom,
+
+        rgba(255,0,0,0.55) 0%,
+        rgba(140,0,0,0.42) 18%,
+        rgba(70,0,0,0.25) 35%,
+        rgba(15,15,15,0.95) 70%,
+        #000000 100%
+    );
+
+    background-attachment:fixed;
+
+}
+
+/* =========================
+        NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    height:80px;
+    background:#000;
+    border-bottom:2px solid #00ffc8;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+
+    box-shadow:
+    0 0 20px rgba(0,255,200,0.08);
+}
+
+.logo{
+    font-family:'Orbitron', sans-serif;
+    color:#00ffc8;
+    font-size:30px;
+    font-weight:700;
+
+    text-shadow:
+    0 0 10px rgba(0,255,200,0.7);
+}
+
+/* LINKS */
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#00ffc8;
+    font-size:20px;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+
+    text-shadow:
+    0 0 10px #00ffc8;
+}
+
+/* =========================
+        MENU BUTTON
+========================= */
+
+.menu-btn{
+    width:60px;
+    height:60px;
+    border:1px solid #00ffc8;
+    position:relative;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    transition:0.3s;
+}
+
+.menu-btn:hover{
+
+    box-shadow:
+    0 0 15px rgba(0,255,200,0.35);
+
+}
+
+.menu-btn span{
+    position:absolute;
+    width:30px;
+    height:3px;
+    background:#00ffc8;
+}
+
+.menu-btn span:nth-child(1){
+    transform:translateY(-10px);
+}
+
+.menu-btn span:nth-child(3){
+    transform:translateY(10px);
+}
+
+/* =========================
+        SIDE MENU
+========================= */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-340px;
+    width:340px;
+    height:100%;
+    background:#050505;
+    border-left:2px solid #00ffc8;
+    transition:0.4s;
+    z-index:999;
+    padding-top:80px;
+
+    box-shadow:
+    -10px 0 30px rgba(0,0,0,0.6);
+}
+
+.side-menu.active{
+    right:0;
+}
+
+.menu-title{
+    color:#00ffc8;
+    font-size:38px;
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+    margin-bottom:20px;
+}
+
+.side-menu a{
+    width:100%;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
+    font-size:23px;
+    font-weight:700;
+    transition:0.3s;
+}
+
+/* COLORES MENU */
+
+.side-menu a:nth-child(2){
+    background:linear-gradient(90deg,#0099ff,#304cff);
+}
+
+.side-menu a:nth-child(3){
+    background:linear-gradient(90deg,#9d00ff,#ff3dff);
+}
+
+.side-menu a:nth-child(4){
+    background:linear-gradient(90deg,#004b37,#44ffb1);
+}
+
+.side-menu a:nth-child(5){
+    background:linear-gradient(90deg,#ffe600,#004dff);
+}
+
+.side-menu a:nth-child(6){
+    background:linear-gradient(90deg,#2b0000,#ff0000);
+}
+
+.side-menu a:nth-child(7){
+    background:linear-gradient(90deg,#68001f,#d10047);
+}
+
+.side-menu a:hover{
+    filter:brightness(1.2);
+}
+
+/* =========================
+        TITULO
+========================= */
+
+.titulo{
+    text-align:center;
+    margin-top:40px;
+    font-size:60px;
+    color:#00c98b;
+    font-family:'Orbitron', sans-serif;
+
+    text-shadow:
+    0 0 15px rgba(0,201,139,0.55);
+}
+
+/* =========================
+        BARRA BUSQUEDA
+========================= */
+
+.buscador-container{
+
+    width:97%;
+    margin:30px auto;
+
+    background:
+    rgba(25,25,25,0.92);
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    padding:18px;
+
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+
+    backdrop-filter:blur(4px);
+
+    box-shadow:
+    0 0 25px rgba(0,0,0,0.35);
+
+}
+
+/* INPUTS */
+
+.search-box{
+    width:330px;
+    height:48px;
+
+    border:1px solid #ff0000;
+
+    background:#111;
+
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.search-box input{
+    width:100%;
+    height:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    padding:0 15px;
+    font-size:16px;
+}
+
+/* LUPA SVG */
+
+.search-btn{
+    width:55px;
+    height:48px;
+    background:#000;
+    border:none;
+    border-left:1px solid #333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.search-btn:hover{
+
+    background:#151515;
+
+}
+
+.search-btn svg{
+    width:22px;
+    fill:white;
+}
+
+/* SELECTS */
+
+.select-box{
+    width:330px;
+    height:48px;
+    border:1px solid #ff0000;
+    background:#111;
+    padding:0 15px;
+    color:#777;
+    font-size:15px;
+    outline:none;
+}
+
+/* ========================================= */
+/* BOTON + */
+/* ========================================= */
+
+.add-btn{
+
+    width:58px;
+    height:48px;
+
+    border:none;
+
+    background:
+    linear-gradient(
+    to bottom,
+    #00ffcc,
+    #009977
+    );
+
+    color:#000;
+
+    font-size:34px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.add-btn:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 15px rgba(0,255,200,0.4);
+
+}
+
+/* ========================================= */
+/* FORMULARIO */
+/* ========================================= */
+
+.server-form{
+
+    width:97%;
+
+    margin:20px auto;
+
+    padding:25px;
+
+    background:
+    rgba(18,18,18,0.94);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    display:none;
+    flex-direction:column;
+    gap:18px;
+
+    backdrop-filter:blur(4px);
+
+}
+
+.server-form input,
+.server-form select{
+
+    width:100%;
+    height:50px;
+
+    background:#111;
+
+    border:1px solid #ff0000;
+
+    color:white;
+
+    padding:0 15px;
+
+    outline:none;
+
+    font-size:16px;
+
+    font-family:'Rajdhani', sans-serif;
+
+}
+
+/* BOTON PUBLICAR */
+
+.publish-btn{
+
+    height:55px;
+
+    border:none;
+
+    background:
+    linear-gradient(
+    to right,
+    #00ffcc,
+    #00aaff
+    );
+
+    color:black;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.publish-btn:hover{
+
+    filter:brightness(1.1);
+
+}
+
+/* =========================
+        RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .titulo{
+        font-size:40px;
+    }
+
+    .search-box,
+    .select-box{
+        width:100%;
+    }
+
+    .add-btn{
+        width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">BUGZONE</div>
+
+    <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <!-- BOTON MENU -->
+
+    <div class="menu-btn" onclick="toggleMenu()">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+</header>
+
+<!-- MENU LATERAL -->
+
+<div id="sideMenu" class="side-menu">
+
+    <div class="menu-title">Explorar</div>
+
+    <a href="hardware.html">PC - Hardware y Software</a>
+
+    <a href="juegos.html">Nuevos juegos o recomendaciones</a>
+
+    <a href="guias.html">Guias - Foros de ayuda</a>
+
+    <a href="celulares.html">Celulares - Programas</a>
+
+    <a href="servidores.html">Servidores publicos</a>
+
+    <a href="noticias.html">Noticias - Novedades</a>
+
+</div>
+
+<!-- CONTENIDO -->
+
+<main>
+
+<h1 class="titulo">Servidores publicos</h1>
+
+<!-- BARRA -->
+
+<div class="buscador-container">
+
+    <!-- BUSCADOR -->
+
+    <div class="search-box">
+
+        <input type="text" placeholder="Nombre del servidor o IP">
+
+        <button class="search-btn">
+
+            <!-- SVG LUPA -->
+            <svg viewBox="0 0 24 24">
+                <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+
+        </button>
+
+    </div>
+
+    <!-- SELECT JUEGO -->
+
+    <select class="select-box">
+
+        <option>Tipo de juego</option>
+
+        <option>Minecraft</option>
+        <option>Counter Strike 2</option>
+        <option>GTA V</option>
+        <option>Rust</option>
+        <option>ARK</option>
+        <option>FiveM</option>
+
+    </select>
+
+    <!-- SELECT REGION -->
+
+    <select class="select-box">
+
+        <option>Regiones - Pais</option>
+
+        <option>Argentina</option>
+        <option>Brasil</option>
+        <option>Chile</option>
+        <option>España</option>
+        <option>Estados Unidos</option>
+
+    </select>
+
+    <!-- BOTON AGREGAR -->
+
+    <button class="add-btn" onclick="mostrarFormulario()">
+        +
+    </button>
+
+</div>
+
+<!-- FORMULARIO -->
+
+<div class="server-form" id="serverForm">
+
+    <input type="text" placeholder="Nombre del servidor">
+
+    <input type="text" placeholder="IP o direccion del servidor">
+
+    <input type="text" placeholder="Contraseña (opcional)">
+
+    <select>
+
+        <option>Selecciona el juego</option>
+
+        <option>Minecraft</option>
+        <option>Counter Strike 2</option>
+        <option>GTA V</option>
+        <option>Rust</option>
+        <option>ARK</option>
+        <option>FiveM</option>
+
+    </select>
+
+    <button class="publish-btn">
+        Publicar servidor
+    </button>
+
+</div>
+
+</main>
+
+<script>
+
+function toggleMenu(){
+
+    document
+    .getElementById("sideMenu")
+    .classList
+    .toggle("active");
+
+}
+
+/* FORMULARIO */
+
+function mostrarFormulario(){
+
+    let form =
+    document.getElementById("serverForm");
+
+    if(form.style.display === "flex"){
+
+        form.style.display = "none";
+
+    }else{
+
+        form.style.display = "flex";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

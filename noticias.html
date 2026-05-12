@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BUGZONE - Noticias</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#180000;
+    color:white;
+    font-family:'Rajdhani', sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+        NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    height:80px;
+    background:black;
+    border-bottom:2px solid #00ffc8;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+}
+
+.logo{
+    font-family:'Orbitron', sans-serif;
+    font-size:30px;
+    color:#00ffc8;
+    text-shadow:0 0 15px #00ffc8;
+    font-weight:bold;
+}
+
+/* LINKS */
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#00ffc8;
+    font-size:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+    text-shadow:0 0 10px #00ffc8;
+}
+
+/* =========================
+        BOTON MENU
+========================= */
+
+.menu-btn{
+    width:60px;
+    height:60px;
+    border:1px solid #00ffc8;
+    position:relative;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.menu-btn span{
+    position:absolute;
+    width:30px;
+    height:3px;
+    background:#00ffc8;
+}
+
+.menu-btn span:nth-child(1){
+    transform:translateY(-10px);
+}
+
+.menu-btn span:nth-child(3){
+    transform:translateY(10px);
+}
+
+/* =========================
+        MENU LATERAL
+========================= */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-340px;
+    width:340px;
+    height:100%;
+    background:#050505;
+    z-index:999;
+    transition:0.4s;
+    border-left:2px solid #00ffc8;
+    padding-top:80px;
+}
+
+.side-menu.active{
+    right:0;
+}
+
+.menu-title{
+    color:#00ffc8;
+    font-size:38px;
+    text-align:center;
+    font-family:'Orbitron', sans-serif;
+    margin-bottom:20px;
+}
+
+.side-menu a{
+    width:100%;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:white;
+    font-size:23px;
+    font-weight:bold;
+}
+
+/* COLORES */
+
+.side-menu a:nth-child(2){
+    background:linear-gradient(90deg,#0099ff,#304cff);
+}
+
+.side-menu a:nth-child(3){
+    background:linear-gradient(90deg,#9d00ff,#ff3dff);
+}
+
+.side-menu a:nth-child(4){
+    background:linear-gradient(90deg,#004b37,#44ffb1);
+}
+
+.side-menu a:nth-child(5){
+    background:linear-gradient(90deg,#ffe600,#004dff);
+}
+
+.side-menu a:nth-child(6){
+    background:linear-gradient(90deg,#2b0000,#ff0000);
+}
+
+.side-menu a:nth-child(7){
+    background:linear-gradient(90deg,#68001f,#d10047);
+}
+
+/* =========================
+        TITULO
+========================= */
+
+.titulo{
+    text-align:center;
+    margin-top:35px;
+    font-size:55px;
+    color:#00c98b;
+    font-family:'Orbitron', sans-serif;
+    text-shadow:0 0 15px #00c98b;
+}
+
+/* =========================
+        BUSCADOR
+========================= */
+
+.buscador-container{
+    width:96%;
+    margin:25px auto;
+    background:#202020;
+    border:1px solid #444;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:#111;
+    border:1px solid red;
+}
+
+.search-box input{
+    width:260px;
+    padding:12px;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:white;
+    font-size:16px;
+}
+
+.search-box button{
+    width:50px;
+    height:45px;
+    border:none;
+    background:black;
+    color:white;
+    cursor:pointer;
+    font-size:22px;
+}
+
+/* BOTON + */
+
+.add-btn{
+    width:55px;
+    height:55px;
+    border:none;
+    background:#00c98b;
+    color:black;
+    font-size:40px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.add-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #00ffc8;
+}
+
+/* =========================
+        FORMULARIO
+========================= */
+
+.formulario{
+    width:95%;
+    margin:20px auto;
+    background:#111;
+    border:2px solid #00ffc8;
+    padding:20px;
+    display:none;
+    flex-direction:column;
+    gap:15px;
+}
+
+.formulario input,
+.formulario textarea{
+    width:100%;
+    padding:14px;
+    background:#1f1f1f;
+    border:1px solid #00ffc8;
+    color:white;
+    font-size:17px;
+    outline:none;
+}
+
+.formulario textarea{
+    resize:none;
+    height:120px;
+}
+
+.publicar-btn{
+    padding:14px;
+    border:none;
+    background:#00c98b;
+    color:black;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* =========================
+        NOTICIAS
+========================= */
+
+.noticias{
+    width:97%;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(500px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1b0000;
+    border:2px solid #008cff;
+    padding:18px;
+    display:flex;
+    gap:20px;
+    align-items:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.02);
+    box-shadow:0 0 15px #008cff;
+}
+
+.card img{
+    width:230px;
+    height:150px;
+    object-fit:cover;
+    border:2px solid #222;
+}
+
+.card p{
+    font-size:24px;
+    color:#00c98b;
+    font-weight:600;
+    line-height:1.3;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .titulo{
+        font-size:38px;
+    }
+
+    .noticias{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .card img{
+        width:100%;
+        height:auto;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header class="navbar">
+
+    <div class="logo">BUGZONE</div>
+
+    <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</header>
+
+<!-- MENU -->
+
+<div id="sideMenu" class="side-menu">
+
+    <div class="menu-title">Explorar</div>
+
+    <a href="hardware.html">PC - Hardware y Software</a>
+    <a href="juegos.html">Nuevos juegos</a>
+    <a href="guias.html">Guias - Foros</a>
+    <a href="celulares.html">Celulares</a>
+    <a href="servidores.html">Servidores</a>
+    <a href="noticias.html">Noticias</a>
+
+</div>
+
+<!-- CONTENIDO -->
+
+<main>
+
+<h1 class="titulo">Noticias - Novedades</h1>
+
+<!-- BUSCADOR -->
+
+<div class="buscador-container">
+
+    <div class="search-box">
+        <input type="text" placeholder="Buscar noticia...">
+        <button>🔍</button>
+    </div>
+
+    <!-- BOTON + -->
+    <button class="add-btn" onclick="mostrarFormulario()">
+        +
+    </button>
+
+</div>
+
+<!-- FORMULARIO -->
+
+<div class="formulario" id="formulario">
+
+    <input type="text" id="tituloInput" placeholder="Titulo de la noticia">
+
+    <input type="text" id="imagenInput" placeholder="URL de la imagen">
+
+    <textarea id="textoInput" placeholder="Escribe la noticia..."></textarea>
+
+    <button class="publicar-btn" onclick="agregarNoticia()">
+        Publicar noticia
+    </button>
+
+</div>
+
+<!-- NOTICIAS -->
+
+<div class="noticias" id="contenedorNoticias">
+
+    <!-- NOTICIA INICIAL -->
+
+    <div class="card">
+
+        <img src="https://static.wikia.nocookie.net/halflife7283/images/3/3b/Half_Life_Logo.jpg/revision/latest?cb=20131222011139&path-prefix=es">
+
+        <p>
+            Half-Life 3 podría anunciarse oficialmente
+            durante 2026 según nuevas filtraciones.
+        </p>
+
+    </div>
+
+</div>
+
+</main>
+
+<script>
+
+/* MENU */
+
+function toggleMenu(){
+    document.getElementById("sideMenu").classList.toggle("active");
+}
+
+/* MOSTRAR FORMULARIO */
+
+function mostrarFormulario(){
+
+    let form = document.getElementById("formulario");
+
+    if(form.style.display === "flex"){
+        form.style.display = "none";
+    }
+    else{
+        form.style.display = "flex";
+    }
+
+}
+
+/* AGREGAR NOTICIA */
+
+function agregarNoticia(){
+
+    let titulo = document.getElementById("tituloInput").value;
+
+    let imagen = document.getElementById("imagenInput").value;
+
+    let texto = document.getElementById("textoInput").value;
+
+    if(titulo === "" || imagen === "" || texto === ""){
+        alert("Completa todos los campos");
+        return;
+    }
+
+    let card = document.createElement("div");
+
+    card.classList.add("card");
+
+    card.innerHTML = `
+
+        <img src="${imagen}">
+
+        <p>
+            <strong>${titulo}</strong><br><br>
+            ${texto}
+        </p>
+
+    `;
+
+    document.getElementById("contenedorNoticias").appendChild(card);
+
+    /* LIMPIAR */
+
+    document.getElementById("tituloInput").value = "";
+    document.getElementById("imagenInput").value = "";
+    document.getElementById("textoInput").value = "";
+
+}
+
+</script>
+
+</body>
+</html> 

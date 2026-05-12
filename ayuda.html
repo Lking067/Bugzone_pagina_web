@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BUGZONE - Ayuda</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at center, #1f8f6a 0%, #021312 70%);
+    color:white;
+    min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    height:80px;
+    border-bottom:1px solid #00ffbf;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    position:relative;
+}
+
+.logo{
+    color:#00ffbf;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#00ffbf;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+/* BOTON MENU */
+
+.menu-btn{
+    width:60px;
+    height:60px;
+    border:1px solid #00ffbf;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    position:relative;
+    z-index:1001;
+}
+
+/* 3 rayitas */
+
+.menu-btn span{
+    position:absolute;
+    width:30px;
+    height:3px;
+    background:#00ffbf;
+    transition:0.3s;
+}
+
+.menu-btn span:nth-child(1){
+    transform:translateY(-10px);
+}
+
+.menu-btn span:nth-child(3){
+    transform:translateY(10px);
+}
+
+/* MENU LATERAL */
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-340px;
+    width:340px;
+    height:100%;
+    background:#050505;
+    transition:0.4s;
+    z-index:1000;
+    border-left:2px solid #00ffbf;
+    padding-top:80px;
+}
+
+.side-menu.active{
+    right:0;
+}
+
+/* TITULO */
+
+.menu-title{
+    color:#00ffbf;
+    font-size:38px;
+    font-weight:bold;
+    padding:0 20px 20px;
+    border-bottom:2px solid #00ffbf;
+}
+
+/* ITEMS */
+
+.side-menu a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:70px;
+    text-decoration:none;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+/* COLORES COMO LA IMAGEN */
+
+.side-menu a:nth-child(2){
+    background:linear-gradient(90deg,#00a2ff,#2848ff);
+}
+
+.side-menu a:nth-child(3){
+    background:linear-gradient(90deg,#9b2fff,#ff3df2);
+}
+
+.side-menu a:nth-child(4){
+    background:linear-gradient(90deg,#0d3b2f,#4cffb0);
+}
+
+.side-menu a:nth-child(5){
+    background:linear-gradient(90deg,#ffe600,#004dff);
+}
+
+.side-menu a:nth-child(6){
+    background:linear-gradient(90deg,#2b0000,#ff0000);
+}
+
+.side-menu a:nth-child(7){
+    background:linear-gradient(90deg,#750022,#d6004c);
+}
+
+/* CONTENIDO */
+
+main{
+    padding:50px 20px;
+}
+
+.titulo{
+    text-align:center;
+    color:#00ffbf;
+    font-size:60px;
+    margin-bottom:50px;
+    letter-spacing:3px;
+}
+
+/* BOTONES AYUDA */
+
+.ayuda-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:40px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.ayuda-box{
+    height:90px;
+    background:linear-gradient(90deg,#000,#49d8a1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:bold;
+    border-left:4px solid #00ffbf;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.ayuda-box:hover{
+    transform:scale(1.03);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .titulo{
+        font-size:45px;
+    }
+
+    .ayuda-box{
+        font-size:24px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">BUGZONE</div>
+
+    <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <!-- BOTON MENU -->
+    <div class="menu-btn" onclick="toggleMenu()">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+
+</header>
+
+<!-- MENU LATERAL -->
+
+<div id="sideMenu" class="side-menu">
+
+    <div class="menu-title">Explorar</div>
+
+    <a href="hardware.html">PC - Hardware y Software</a>
+
+    <a href="juegos.html">Nuevos juegos o recomendaciones</a>
+
+    <a href="guias.html">Guias - Foros de ayuda</a>
+
+    <a href="celulares.html">Celulares - Programas</a>
+
+    <a href="servidores.html">Servidores publicos</a>
+
+    <a href="noticias.html">Noticias - Novedades</a>
+
+</div>
+
+<!-- CONTENIDO -->
+
+<main>
+
+    <h1 class="titulo">AYUDA</h1>
+
+    <div class="ayuda-grid">
+
+        <div class="ayuda-box">
+            ¿Encontraste un problema?
+        </div>
+
+        <div class="ayuda-box">
+            Ideas y sugerencias
+        </div>
+
+        <div class="ayuda-box">
+            Soporte de la pagina
+        </div>
+
+        <div class="ayuda-box">
+            Terminos y condiciones
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+function toggleMenu(){
+    document.getElementById("sideMenu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>

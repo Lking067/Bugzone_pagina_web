@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Celulares</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        BUGZONE
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="juegos.html">Juegos</a>
+        <a href="ayuda.html">Ayuda</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</header>
+
+<!-- MENU -->
+<div id="sideMenu" class="side-menu">
+
+    <a href="index.html">Inicio</a>
+
+    <a href="juegos.html" class="juegos">
+        Juegos
+    </a>
+
+    <a href="hardware.html" class="pc">
+        PC Hardware
+    </a>
+
+    <a href="guias.html" class="guias">
+        Guias
+    </a>
+
+    <a href="celulares.html" class="celulares">
+        Celulares
+    </a>
+
+    <a href="servidores.html" class="servidores">
+        Servidores
+    </a>
+
+    <a href="noticias.html" class="noticias">
+        Noticias
+    </a>
+
+    <a href="ayuda.html">
+        Ayuda
+    </a>
+
+    <a href="contacto.html">
+        Contacto
+    </a>
+
+</div>
+
+<!-- CONTENIDO -->
+<main class="celulares-container">
+
+    <h1 class="celulares-title">
+        Celulares
+    </h1>
+
+    <!-- GRID -->
+    <div class="celulares-grid">
+
+        <!-- IZQUIERDA -->
+        <div class="celulares-column">
+
+            <a href="#" class="celular-card">
+                Modelos recomendados
+            </a>
+
+            <a href="#" class="celular-card">
+                Programas - optimizadores
+            </a>
+
+            <a href="#" class="celular-card">
+                Emuladores - Roms
+            </a>
+
+        </div>
+
+        <!-- DERECHA -->
+        <div class="celulares-column">
+
+            <a href="#" class="celular-card">
+                Comunidades
+            </a>
+
+            <a href="#" class="celular-card">
+                ¿Lo corre tu telefono?
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+/* MENU */
+function toggleMenu(){
+    document
+    .getElementById("sideMenu")
+    .classList.toggle("active");
+}
+
+</script>
+
+</body>
+</html>
