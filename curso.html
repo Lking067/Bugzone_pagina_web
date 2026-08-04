@@ -1,170 +1,436 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- =======================================
-        QUIENES SOMOS
-======================================= -->
 
-<section id="quienes" class="extra-section">
+<head>
 
-<h1>¿Quienes somos?</h1>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bugzone - Información</title>
+
+<link rel="stylesheet" href="estilos.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+
+<div class="logo">
+BUGZONE
+</div>
+
+
+<nav class="nav-links">
+
+<a href="index.html">Inicio</a>
+
+<a href="juegos.html">Juegos</a>
+
+<a href="ayuda.html">Ayuda</a>
+
+<a href="contacto.html">Contacto</a>
+
+</nav>
+
+
+<div class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+☰
+</div>
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+<section id="quienes" class="extra-section" aria-label="Información sobre Bugzone">
+
+
+<h1>¿Quiénes somos?</h1>
 
 <p>
 BUGZONE es una plataforma creada para compartir noticias,
-guias, juegos, servidores publicos y contenido relacionado
-al mundo gamer y la tecnologia.
+guías, juegos, servidores públicos y contenido relacionado
+al mundo gamer y la tecnología.
 </p>
+
+
 
 <h2>Nuestro objetivo</h2>
 
 <p>
-Ayudar a la comunidad ofreciendo contenido util,
+Ayudar a la comunidad ofreciendo contenido útil,
 tutoriales, recomendaciones y herramientas para jugadores
-y usuarios de tecnologia.
+y usuarios de tecnología.
 </p>
 
-<h2>Que ofrecemos</h2>
+
+
+<h2>Qué ofrecemos</h2>
 
 <ul>
+
 <li>Noticias gaming</li>
-<li>Guias y tutoriales</li>
-<li>Servidores publicos</li>
-<li>Ayuda tecnica</li>
+
+<li>Guías y tutoriales</li>
+
+<li>Servidores públicos</li>
+
+<li>Ayuda técnica</li>
+
 <li>Programas y herramientas</li>
+
 </ul>
 
-<!-- =======================================
-            CURSO
-======================================= -->
 
-<h1>Curso de Armado y Optimizacion de PC</h1>
 
-<h2>Temas principales</h2>
 
-<h3>1. Componentes de una PC</h3>
+
+
+
+<article>
+
+
+<h1>
+Curso de Armado y Optimización de PC
+</h1>
+
+
+
+<h2>
+Temas principales
+</h2>
+
+
+
+<h3>
+1. Componentes de una PC
+</h3>
+
 
 <p>
 Procesador, memoria RAM, placa madre, fuente de poder,
-almacenamiento y tarjeta grafica.
+almacenamiento y tarjeta gráfica.
 </p>
 
-<h3>2. Instalacion del sistema operativo</h3>
+
+
+<h3>
+2. Instalación del sistema operativo
+</h3>
+
 
 <p>
-Instalacion de Windows, drivers y programas basicos.
+Instalación de Windows, drivers y programas básicos.
 </p>
 
-<h3>3. Optimizacion para juegos</h3>
+
+
+
+<h3>
+3. Optimización para juegos
+</h3>
+
 
 <p>
-Configuracion de FPS, limpieza del sistema y mejoras de rendimiento.
+Configuración de FPS, limpieza del sistema y mejoras de rendimiento.
 </p>
 
-<h2>Guia de estudio</h2>
+
+
+
+<h2>
+Guía de estudio
+</h2>
+
 
 <ul>
+
 <li>Identificar componentes</li>
+
 <li>Aprender compatibilidades</li>
+
 <li>Instalar programas</li>
+
 <li>Mejorar rendimiento</li>
+
 </ul>
 
-<!-- =======================================
-                BLOG
-======================================= -->
 
-<h1>Blog</h1>
+</article>
 
-<h2>Ultimas entradas</h2>
 
-<h3>Como mejorar FPS en juegos</h3>
+
+
+
+
+
+
+<article>
+
+
+<h1>
+Blog
+</h1>
+
+
+<h2>
+Últimas entradas
+</h2>
+
+
+
+<h3>
+Cómo mejorar FPS en juegos
+</h3>
+
 
 <p>
 Consejos para aumentar el rendimiento en juegos competitivos.
 </p>
 
-<h3>Los mejores servidores de Minecraft</h3>
+
+
+<h3>
+Los mejores servidores de Minecraft
+</h3>
+
 
 <p>
 Lista de servidores recomendados para jugar online.
 </p>
 
-<h2>Comentarios</h2>
+
+
+<h2>
+Comentarios
+</h2>
+
 
 <p>
 Los usuarios pueden dejar opiniones y sugerencias
-sobre cada publicacion.
+sobre cada publicación.
 </p>
 
-<!-- =======================================
-                    CV
-======================================= -->
 
-<h1>Curriculum Vitae</h1>
 
-<h2>Experiencia laboral</h2>
+<!-- FORMULARIO ACCESIBLE -->
+
+
+<form>
+
+
+<label for="nombre">
+Nombre:
+</label>
+
+
+<br>
+
+
+<input 
+type="text" 
+id="nombre" 
+name="nombre"
+aria-label="Nombre del usuario"
+required>
+
+
+<br><br>
+
+
+
+<label for="comentario">
+Comentario:
+</label>
+
+
+<br>
+
+
+<textarea
+id="comentario"
+name="comentario"
+aria-label="Escribir comentario"
+required></textarea>
+
+
+<br><br>
+
+
+
+<button type="submit">
+Enviar comentario
+</button>
+
+
+</form>
+
+
+</article>
+
+
+
+
+
+
+
+
+
+
+<article>
+
+
+<h1>
+Currículum Vitae
+</h1>
+
+
+<h2>
+Experiencia laboral
+</h2>
+
 
 <p>
-Administrador de servidores gaming y soporte tecnico.
+Administrador de servidores gaming y soporte técnico.
 </p>
 
-<h2>Educacion</h2>
+
+
+<h2>
+Educación
+</h2>
+
 
 <p>
-Cursos de programacion web y mantenimiento de PC.
+Cursos de programación web y mantenimiento de PC.
 </p>
 
-<h2>Habilidades</h2>
+
+
+<h2>
+Habilidades
+</h2>
+
 
 <ul>
+
 <li>HTML y CSS</li>
-<li>Configuracion de servidores</li>
-<li>Soporte tecnico</li>
-<li>Edicion multimedia</li>
+
+<li>Configuración de servidores</li>
+
+<li>Soporte técnico</li>
+
+<li>Edición multimedia</li>
+
 </ul>
 
-<!-- =======================================
-        PREGUNTAS FRECUENTES
-======================================= -->
 
-<h1>Preguntas Frecuentes</h1>
+</article>
 
-<h2>¿BUGZONE es gratuito?</h2>
+
+
+
+
+
+
+
+
+
+<article>
+
+
+<h1>
+Preguntas Frecuentes
+</h1>
+
+
+
+<h2>
+¿BUGZONE es gratuito?
+</h2>
+
 
 <p>
-Si, todo el contenido principal es gratuito.
+Sí, todo el contenido principal es gratuito.
 </p>
 
-<h2>¿Como puedo agregar un servidor?</h2>
+
+
+<h2>
+¿Cómo puedo agregar un servidor?
+</h2>
+
 
 <p>
-Desde la seccion servidores podras agregar IP, contraseña y tipo de juego.
+Desde la sección servidores podrás agregar IP,
+contraseña y tipo de juego.
 </p>
 
-<h2>¿Como contacto soporte?</h2>
+
+
+
+<h2>
+¿Cómo contacto soporte?
+</h2>
+
 
 <p>
-Desde las redes sociales o la seccion ayuda.
+Desde las redes sociales o la sección ayuda.
 </p>
+
+
+
+</article>
+
+
 
 </section>
 
+
 </main>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
 
 <script>
 
+
 function toggleMenu(){
 
-    document.getElementById("sideMenu").classList.toggle("active");
+document.getElementById("sideMenu").classList.toggle("active");
 
 }
+
+
 
 function mostrarSeccion(id){
 
-    document.getElementById(id).classList.toggle("active");
+document.getElementById(id).classList.toggle("active");
 
 }
 
+
 </script>
 
+
+
 </body>
+
 </html>
