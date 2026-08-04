@@ -784,4 +784,237 @@ body {
     }
 
 }
+/* ======================================= */
+/* FORMULARIO DANOS TU OPINION */
+/* ======================================= */
 
+
+.opinion-box{
+
+    display:none;
+
+    position:fixed;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:500px;
+    max-width:90%;
+
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    padding:35px;
+
+    background:
+    radial-gradient(circle,#07111f,#02060d);
+
+    border:2px solid #00ffcc;
+
+    box-shadow:
+    0 0 20px #00ffcc,
+    0 0 40px rgba(0,255,204,0.3);
+
+    color:white;
+
+    z-index:3000;
+
+    font-family:Arial;
+}
+
+
+/* TITULO DEL FORMULARIO */
+
+.opinion-box h2{
+
+    text-align:center;
+
+    color:#00ffcc;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:30px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+/* LABELS */
+
+.opinion-box label{
+
+    display:block;
+
+    color:#36B57D;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    margin-top:15px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+/* RADIOS */
+
+.opinion-box input[type="radio"]{
+
+    margin:8px;
+
+    accent-color:#00ffcc;
+
+}
+
+
+
+/* TEXTAREA */
+
+.opinion-box textarea{
+
+    width:100%;
+
+    height:90px;
+
+    resize:none;
+
+    margin-top:10px;
+
+    padding:10px;
+
+    background:#000;
+
+    color:#00ffcc;
+
+    border:1px solid #00ffcc;
+
+    border-radius:8px;
+
+    outline:none;
+
+}
+
+
+.opinion-box textarea:focus{
+
+    box-shadow:0 0 10px #00ffcc;
+
+}
+
+
+
+
+
+/* BOTONES */
+
+
+.opinion-box button{
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    background:#00ffcc;
+
+    color:#000;
+
+    transition:0.3s;
+
+}
+
+
+.opinion-box button:hover{
+
+    transform:scale(1.05);
+
+    box-shadow:0 0 15px #00ffcc;
+
+}
+
+
+
+
+/* ELEMENTOS OCULTOS */
+
+.oculto{
+
+    display:none;
+
+}
+
+
+
+/* BOTON DANOS TU OPINION EN EL MENU */
+
+
+.nav-links a:last-child{
+
+    color:#36B57D;
+
+    font-weight:bold;
+
+}
+
+
+.nav-links a:last-child:hover{
+
+    color:white;
+
+}
+
+
+
+/* RESPONSIVE FORMULARIO */
+
+
+@media(max-width:600px){
+
+
+    .opinion-box{
+
+        width:95%;
+
+        padding:20px;
+
+    }
+
+
+    .opinion-box h2{
+
+        font-size:24px;
+
+    }
+
+
+}
+.video-box{
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    border: 2px solid #00ffcc;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0 0 15px rgba(0,255,204,.4);
+}
+
+.video-box video{
+    width: 100%;
+    display: block;
+}
