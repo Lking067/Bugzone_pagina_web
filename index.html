@@ -144,7 +144,7 @@ Buscar
 <div class="video-box">
 
     <video autoplay muted loop playsinline>
-        <source src="video.mp4" type="video/mp4">
+        <source src="videos/video.mp4" type="video/mp4">
         Tu navegador no soporta videos HTML5.
     </video>
 
@@ -207,11 +207,15 @@ En marzo de 2026, Epic Games anunció el despido de más de 1000 empleados, apro
 Danos tu opinión
 </h2>
 
+<form action="/registrar.php" method="post" id="formOpinion" novalidate>
 
+<label for="correo">
+Correo electrónico:
+</label>
 
+<input type="email" id="correo" name="correo">
 
-
-<form action="/registrar.php" method="post">
+<span id="errorCorreo" class="mensaje-error"></span>
 
 
 
@@ -359,14 +363,13 @@ Explícanos qué mejorarías del estilo:
 
 
 
-
 <label for="juegos">
 ¿Qué otros juegos debemos agregar?
 </label>
 
-
 <textarea id="juegos" name="juegos"></textarea>
 
+<span id="errorJuegos" class="mensaje-error"></span>
 
 
 
@@ -554,4 +557,3 @@ document.getElementById(id).style.display="block";
 </body>
 
 </html>
-
