@@ -1040,3 +1040,72 @@ body {
     border: 1px solid #00ffcc;
     box-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
 }
+/* ==========================================
+   GALERÍA
+========================================== */
+
+.galeria {
+    text-align: center;
+    margin: 40px auto;
+}
+
+.miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.miniaturas img {
+    width: 160px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.miniaturas img:hover {
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   VISOR DE IMAGEN
+========================================== */
+
+.visor-imagen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    z-index: 10000;
+}
+
+.visor-imagen img {
+    max-width: 70%;
+    max-height: 75vh;
+    border-radius: 10px;
+}
+
+.visor-imagen button {
+    background: #00ffcc;
+    border: none;
+    color: black;
+    font-size: 25px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cerrar-visor {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
