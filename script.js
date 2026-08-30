@@ -63,3 +63,6 @@ function buscar(){
     });
 
 }
+window.onload = function() {
+    alert("¡Bienvenido a BUGZONE! Esperamos que disfrutes de nuestra página.");
+};
