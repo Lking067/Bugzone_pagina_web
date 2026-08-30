@@ -66,3 +66,64 @@ function buscar(){
 window.onload = function() {
     alert("¡Bienvenido a BUGZONE! Esperamos que disfrutes de nuestra página.");
 };
+// ===============================
+// VALIDACIÓN DEL FORMULARIO
+// ===============================
+
+document.getElementById("formOpinion").addEventListener("submit", function(event) {
+
+    let correo = document.getElementById("correo").value.trim();
+    let juegos = document.getElementById("juegos").value.trim();
+
+    let errorCorreo = document.getElementById("errorCorreo");
+    let errorJuegos = document.getElementById("errorJuegos");
+
+    let formularioValido = true;
+
+
+    // Limpiar mensajes anteriores
+
+    errorCorreo.textContent = "";
+    errorJuegos.textContent = "";
+
+
+    // VALIDAR CORREO
+
+    if (correo === "") {
+
+        errorCorreo.textContent = "Por favor, ingresá tu correo electrónico.";
+        formularioValido = false;
+
+    } else {
+
+        let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!formatoCorreo.test(correo)) {
+
+            errorCorreo.textContent = "Ingresá un correo electrónico válido.";
+            formularioValido = false;
+
+        }
+
+    }
+
+
+    // VALIDAR CAMPO JUEGOS
+
+    if (juegos === "") {
+
+        errorJuegos.textContent = "Este campo no puede estar vacío.";
+        formularioValido = false;
+
+    }
+
+
+    // SI HAY ERRORES, NO ENVÍA EL FORMULARIO
+
+    if (!formularioValido) {
+
+        event.preventDefault();
+
+    }
+
+});
