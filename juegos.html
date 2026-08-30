@@ -174,5 +174,47 @@ actualizarFechaHora();
 
 setInterval(actualizarFechaHora, 1000);
 </script>
+<section class="galeria">
+
+    <h2>Galería</h2>
+
+    <div class="miniaturas">
+
+        <img src="imagenes/imagen1.jpg"
+             onclick="abrirImagen(0)"
+             alt="Imagen 1">
+
+        <img src="imagenes/imagen2.jpg"
+             onclick="abrirImagen(1)"
+             alt="Imagen 2">
+
+        <img src="imagenes/imagen3.jpg"
+             onclick="abrirImagen(2)"
+             alt="Imagen 3">
+
+        <img src="imagenes/imagen4.jpg"
+             onclick="abrirImagen(3)"
+             alt="Imagen 4">
+
+    </div>
+
+</section>
+
+
+<!-- VISOR DE IMAGEN AMPLIADA -->
+
+<div id="visorImagen" class="visor-imagen">
+
+    <button onclick="anteriorImagen()">❮</button>
+
+    <img id="imagenGrande" src="imagenes/imagen1.jpg" alt="Imagen ampliada">
+
+    <button onclick="siguienteImagen()">❯</button>
+
+    <span onclick="cerrarImagen()" class="cerrar-visor">
+        ×
+    </span>
+
+</div>
 </body>
 </html>
